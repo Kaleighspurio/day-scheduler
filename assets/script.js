@@ -19,7 +19,7 @@ var dateAndTime = null,
 // this updates the date and time with the current date.time
 var update = function () {
     date = moment(new Date())
-    dateAndTime.html(date.format('dddd MMMM Do YYYY, h:mm a'));
+    dateAndTime.html(date.format('dddd, MMMM Do YYYY, h:mm a'));
 };
 $(document).ready(function(){
     dateAndTime = $(".display-date")
@@ -101,10 +101,27 @@ function getEventsFromLocalStorage(){
 
 // *********Elapsed time color change******
 // Depending on the current time, events that are past, present or future will be displayed as different colors.
-//         -When an event is in the past, it will be grey
-//         -When an event is in the future, it will be blue
-//         -When an event is in the present hour, it will be green
+
+ var m = moment(new Date);
+ console.log(m.format("HH"));
+//  grab the data from the text areas, compare it with the current hour
+var i = 0;
+var textareaArray = [$(".9-am"), $(".10-am"), $(".11-am"), $(".12-pm"), $(".1-pm"), $(".2-pm"), $(".3-pm"), $(".4-pm"), $(".5-pm"), $(".6-pm"), $(".7-pm")]
+console.log(textareaArray)
+ var dataHour = textareaArray[i].attr("data-input")
+ 
+textareaArray.forEach(function(time){
+    dataHour = time.attr("data-input");
+    console.log(dataHour);
+    if (m.format("HH") === dataHour){
+        time.css({"background-color": "#51915a", "color": "white", "font-size": "20px", "min-height": "140px"});
+    } else if (m.format("HH") < dataHour){
+        time.css({"background-color": "#73c77f", "color": "green"});
+    } else {
+        time.css({"background-color": "grey", "color": "#383636"});
+    }
+})
 
 // **************** What happens if it is a new day*********
 // refresh when it is a new day
-// When it is a new day, clear local storage
+// When it is a new day, clear local storage..... Or make a clear button..
