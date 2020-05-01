@@ -29,10 +29,11 @@ $(document).ready(function(){
     setInterval(update, 1000);
 });
 
-// text that was already put in, should appear when the page is reloaded.
+// text that the user already put in and saved should appear when the page is reloaded.
 events = getEventsFromLocalStorage();
 console.log(events)
-// This will take the last array in the object and render it in the appropriate textarea
+// This will take the last array in the object from local storage and render it in the appropriate textarea
+
 $(".9-am").text(events[events.length - 1].nineAM);
 $(".10-am").text(events[events.length - 1].tenAM);
 $(".11-am").text(events[events.length - 1].elevenAM);
@@ -48,7 +49,7 @@ $(".7-pm").text(events[events.length - 1].sevenPM);
 
 // *******saving stuff******
 // When a save button is clicked, the events typed in the text areas will be saved in local storage using the function saveEvents
-$(".btn").on("click", saveEvents);
+$(".save-btn").on("click", saveEvents);
 
 function saveEvents(event){
     event.preventDefault();
@@ -92,29 +93,25 @@ function getEventsFromLocalStorage(){
     if (events){
         return JSON.parse(events);
     } else {
-        return [];
+        return [""];
     }
 }
-
-// When the page is resfreshed, the events will still be where they were inputted
-
-
 // *********Elapsed time color change******
 // Depending on the current time, events that are past, present or future will be displayed as different colors.
-
  var m = moment(new Date);
  console.log(m.format("HH"));
 //  grab the data from the text areas, compare it with the current hour
-var i = 0;
+
+// This is an array of the classes for my textarea elements
 var textareaArray = [$(".9-am"), $(".10-am"), $(".11-am"), $(".12-pm"), $(".1-pm"), $(".2-pm"), $(".3-pm"), $(".4-pm"), $(".5-pm"), $(".6-pm"), $(".7-pm")]
 console.log(textareaArray)
- var dataHour = textareaArray[i].attr("data-input")
- 
 textareaArray.forEach(function(time){
+    // for each textarea element in my array, grab the data attribute
     dataHour = time.attr("data-input");
     console.log(dataHour);
+    // compare the current hour from moment.js to the data attribute for each textarea element and shade/adjust css accordingly
     if (m.format("HH") === dataHour){
-        time.css({"background-color": "#51915a", "color": "white", "font-size": "25px", "min-height": "140px", "border": "3px solid #54558c"});
+        time.css({"background-color": "#51915a", "color": "white", "font-size": "25px", "min-height": "140px", "border": "3px solid #1f437a"});
     } else if (m.format("HH") < dataHour){
         time.css({"background-color": "#73c77f", "color": "#38543c"});
     } else {
@@ -125,3 +122,7 @@ textareaArray.forEach(function(time){
 // **************** What happens if it is a new day*********
 // refresh when it is a new day
 // When it is a new day, clear local storage..... Or make a clear button..
+$(".clear-button").on("click", function(){
+    localStorage.clear();
+    window.location.reload();
+});
