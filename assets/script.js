@@ -114,11 +114,11 @@ textareaArray.forEach(function(time){
     dataHour = time.attr("data-input");
     console.log(dataHour);
     if (m.format("HH") === dataHour){
-        time.css({"background-color": "#51915a", "color": "white", "font-size": "20px", "min-height": "140px"});
+        time.css({"background-color": "#51915a", "color": "white", "font-size": "25px", "min-height": "140px", "border": "3px solid #54558c"});
     } else if (m.format("HH") < dataHour){
-        time.css({"background-color": "#73c77f", "color": "green"});
+        time.css({"background-color": "#73c77f", "color": "#38543c"});
     } else {
-        time.css({"background-color": "grey", "color": "#383636"});
+        time.css({"background-color": "grey", "color": "#383636", "text-decoration": "line-through"});
     }
 })
 
