@@ -114,7 +114,7 @@ textareaArray.forEach(function(time){
         // the current hour will have a green background, larger white text, a border, and the textarea height will be larger
         time.css({"background-color": "#51915a", "color": "white", "font-size": "25px", "min-height": "140px", "border": "3px solid #1f437a"});
     } else if (m.format("HH") < dataHour){
-        time.css({"background-color": "#73c77f", "color": "#38543c"});
+        time.css({"background-color": "#e3eb9d", "color": "#38543c"});
     } else {
         time.css({"background-color": "grey", "color": "#383636", "text-decoration": "line-through"});
     }
