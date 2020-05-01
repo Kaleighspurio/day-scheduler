@@ -111,6 +111,7 @@ textareaArray.forEach(function(time){
     console.log(dataHour);
     // compare the current hour from moment.js to the data attribute for each textarea element and shade/adjust css accordingly
     if (m.format("HH") === dataHour){
+        // the current hour will have a green background, larger white text, a border, and the textarea height will be larger
         time.css({"background-color": "#51915a", "color": "white", "font-size": "25px", "min-height": "140px", "border": "3px solid #1f437a"});
     } else if (m.format("HH") < dataHour){
         time.css({"background-color": "#73c77f", "color": "#38543c"});
@@ -120,9 +121,10 @@ textareaArray.forEach(function(time){
 })
 
 // **************** What happens if it is a new day*********
-// refresh when it is a new day
-// When it is a new day, clear local storage..... Or make a clear button..
+// There is a clear schedule button that can be clicked at the end of the day to clear the schedule
 $(".clear-button").on("click", function(){
+    // when the clear button is clicked, local storage is cleared
     localStorage.clear();
+    // and the page reloads
     window.location.reload();
 });
