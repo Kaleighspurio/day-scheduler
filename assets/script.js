@@ -37,7 +37,7 @@ console.log(events)
 $(".9-am").text(events[events.length - 1].nineAM);
 $(".10-am").text(events[events.length - 1].tenAM);
 $(".11-am").text(events[events.length - 1].elevenAM);
-$(".12-am").text(events[events.length - 1].twelvePM);
+$(".12-pm").text(events[events.length - 1].twelvePM);
 $(".1-pm").text(events[events.length - 1].onePM);
 $(".2-pm").text(events[events.length - 1].twoPM);
 $(".3-pm").text(events[events.length - 1].threePM);
