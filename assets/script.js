@@ -1,14 +1,3 @@
-let eventInput9AM;
-let eventInput10AM;
-let eventInput11AM;
-let eventInput12PM;
-let eventInput1PM;
-let eventInput2PM;
-let eventInput3PM;
-let eventInput4PM;
-let eventInput5PM;
-let eventInput6PM;
-let eventInput7PM;
 let events;
 let eventObject;
 
@@ -31,7 +20,6 @@ $(document).ready(() => {
 
 // text that the user already put in and saved should appear when the page is reloaded.
 events = getEventsFromLocalStorage();
-console.log(events)
 // This will take the last array in the object from local storage and render it in the appropriate textarea
 
 $(".9-am").text(events[events.length - 1].nineAM);
@@ -67,7 +55,6 @@ function saveEvents(event){
         sixPM: $(".6-pm").val(),
         sevenPM: $(".7-pm").val()
     }
-    console.log(eventObject);
     // This gets whatever is already saved in local storage, and then adds onto it
     let events = getEventsFromLocalStorage();
     events.push(eventObject);
@@ -93,7 +80,6 @@ const textareaArray = [$(".9-am"), $(".10-am"), $(".11-am"), $(".12-pm"), $(".1-
 textareaArray.forEach((time) => {
     // for each textarea element in my array, grab the data attribute
     dataHour = time.attr("data-input");
-    console.log(dataHour);
     // compare the current hour from moment.js to the data attribute for each textarea element and shade/adjust css accordingly
     if (m.format("HH") === dataHour){
         // the current hour will have a green background, larger white text, a border, and the textarea height will be larger
