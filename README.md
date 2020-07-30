@@ -1,10 +1,17 @@
 # day-scheduler
-This app allows the user to type in events for the day and save them with the save button to local storage so that they will appear on the page through reloads until the schedule is cleared. 
-As the hours pass by, different css changes will take place to the text areas, depending on whether they are past, present, or future events.
-Areas in the past will become gray and have a strike-through. Present events will have a green background, larger white font, and a larger text area height.  Future events will have yellow backgrounds, with darker green font.
+This front end application is a simple single day calendar.  It allows the user to type in events for the day and save them to local storage so that they will appear on the page through reloads until the schedule is cleared. 
+Using Moment.js, different css changes will take place to the text areas, depending on whether they are past, present, or future events.
 
 The clear button on the bottom of the page allows the user to completely clear the schedule.
 
-This app utilizes moment.js, jQuery, and some Bootstrap elements.
+## Technologies
 
-Click here to see the [Scheduler](https://kaleighspurio.github.io/day-scheduler/).
+This app utilizes JavaScript, HTML5, CSS, Moment.js, Local Storage, jQuery, and Bootstrap.
+
+## Demo
+
+[Click here to try the Scheduler](https://kaleighspurio.github.io/day-scheduler/).
+
+### Screenshots
+
+![Screenshot](assets/images/Screen%20Shot%202020-07-30%20at%2011.50.59%20AM.png)
